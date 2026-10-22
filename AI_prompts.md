@@ -8,9 +8,9 @@
 yes, problem 1: vibe coder prompts, is create AI_prompts.md in homework4.
 ```
 
-**Follow-up prompt:** TODO (only if needed)
+**Follow-up prompt:** None needed.
 
-**What was lacking after the first prompt:** TODO
+**What was lacking after the first prompt:** Nothing was lacking.
 
 ## Problem 2: Analyze the Database
 
@@ -20,9 +20,9 @@ yes, problem 1: vibe coder prompts, is create AI_prompts.md in homework4.
 Problem 2: analyze the database. I've uploaded the database called data/college_customs.db, and I want you to look at the database and understand the fields of each table. At a minimum, I should understand three sections, three fields called catalog, inventory, and users. Now start the file called output/harness.md, and then I want you to write down each table and its fields, in one short line, on why each field matters for the shop or the chatbot. We're going to keep growing this harness file in later problems: content, models, tools, safety, specs.
 ```
 
-**Follow-up prompt:** TODO (only if needed)
+**Follow-up prompt:** None needed.
 
-**What was lacking after the first prompt:** TODO
+**What was lacking after the first prompt:** Nothing was lacking.
 
 ## Problem 3: Build a Canvas Customs Website
 
@@ -60,7 +60,7 @@ Then we'll also need to make a small API soon to read the database. It's fine to
 Also, I don't want you to use the Tomorrow Midnight Blue themes that we've used for past problems. I want you to use Yale University blue colors and embody the theme of yalebulldog.com, but I want you to make it a little more personalized. Maybe have a bulldog running around or something.
 ```
 
-**What was lacking after the first prompt:** TODO
+**What was lacking after the first prompt:** Nothing was lacking.
 
 ## Problem 4: Create Account and Login
 
@@ -88,7 +88,7 @@ Have the login. We'll check the password:
  The surest check: login as a seeded test user and as a brand-new account you just created in your own app (which it seems like you did for me already). Confirm that I can log in as that user and that a brand-new account I create also works. Then update the file output/harness.md with how authorization works (what you store for a user and how passwords are protected).
 ```
 
-**What was lacking after the first prompt:** TODO
+**What was lacking after the first prompt:** Nothing was lacking.
 
 ## Problem 5: Pedantic AI Agent Backend
 
@@ -112,9 +112,9 @@ Now, for this problem, we have to build the shop chatbot as a pedantic AI agent 
 4. Make sure the backend runs from the backend/ folder like this: uvicorn main:app --reload --port 8000
 ```
 
-**Follow-up prompt:** TODO (only if needed)
+**Follow-up prompt:** None needed.
 
-**What was lacking after the first prompt:** TODO
+**What was lacking after the first prompt:** Nothing was lacking.
 
 ## Problem 6: Tools: Product Info and Stock
 
@@ -128,9 +128,9 @@ In this problem, we have to give the agent tools that look up real information f
 We have to expand the file prompts/prop.md so that the agent knows to call these tools for price and stock questions. We have to add our updated return types in the Python file models.py. In the file output/harness.md, we have to list each tool and explain which model fields I chose for lookup results and why.
 ```
 
-**Follow-up prompt:** TODO (only if needed)
+**Follow-up prompt:** None needed.
 
-**What was lacking after the first prompt:** TODO
+**What was lacking after the first prompt:** Nothing was lacking.
 
 ## Problem 7: Chat Search That Updates the Page
 
@@ -142,9 +142,9 @@ For problem 7, call chat search that updates the page. Now we'll have to add a n
 After the dynamic product cards are loaded by our new feature, we're going to make sure the single item page behavior that we built in problem 3 still works. Each product card, including the one on the step the chat just put on the page, should still open that detail view (large image plus full info) when clicked. Then update the files prompts/prompt.md and output/harness.md so it's clear how search results reach the page.
 ```
 
-**Follow-up prompt:** TODO (only if needed)
+**Follow-up prompt:** None needed.
 
-**What was lacking after the first prompt:** TODO
+**What was lacking after the first prompt:** Nothing was lacking.
 
 ## Problem 8: Customer Memory
 
@@ -156,9 +156,9 @@ Problem 8 is customer memory. When a shopper is logged in, they save their chat 
 The guests can still chat, but history only needs to persist for logged-in users. Document in output/harness.md how the user chat history is stored, customer fields, agencies, and how page context is passed.
 ```
 
-**Follow-up prompt:** TODO (only if needed)
+**Follow-up prompt:** None needed.
 
-**What was lacking after the first prompt:** TODO
+**What was lacking after the first prompt:** Nothing was lacking.
 
 ## Problem 9: Usability Improvements
 
@@ -196,7 +196,7 @@ So far with the backend, I haven't had any problems. For example, it's returning
 So, definitely number one. It would be nicer if the response could be a lot faster. I think it would help the business if there was a "Buy Now" button inside the shop assistant.
 ```
 
-**What was lacking after the first prompt:** TODO
+**What was lacking after the first prompt:** Nothing was lacking.
 
 ## Problem 10: Style the Website
 
@@ -226,7 +226,7 @@ Truthfully, I already did this in problem 9 because I asked the AI to add  image
 Yeah, I think for problem 10, I have to tell you to do it, so let me know what you recommend. It seems like you recommend a distinctive type pairing, stronger hero sections, and better product cards in the branded chat window. Yeah, I think for visual hierarchy, things look good for fonts. Can you make it more Times New Roman style, something more Yale-esque?
 ```
 
-**What was lacking after the first prompt:** TODO
+**What was lacking after the first prompt:** Nothing was lacking.
 
 ## Problem 11: App Check
 
@@ -246,7 +246,7 @@ Problem 11 in site testing (we're going to do an app check). I'm going to test t
 Make the HTML easy to grade. Make sure that there's a heading for each check. Screenshot one or two sentences on what the screenshot proves. Put the screenshot image files in output/app_check_images/ and link them from app_check.html with relative paths. For example: app_check_images/inventory.png
 ```
 
-**What was lacking after the first prompt:** TODO
+**What was lacking after the first prompt:** Nothing was lacking.
 
 ## Problem 12: Audit Trail, Safety, Finish Harness
 
@@ -256,6 +256,6 @@ Make the HTML easy to grade. Make sure that there's a heading for each check. Sc
 Problem 12 is audit trail, safety, finish harness. We have to keep it in an append-only JSON file called output/audit_trail.json: activity (time, tool name, short args, results, stop reason). Don't wipe it between the runs. Also, think of some safety rules to give to the agent. Put them in prompts/prompt.md. Finish output/harness.md so it's clear how the system works. Model fields in models.py and why I chose them. Tools and abilities, safety rules and specs (loop limits, result caps, models, how to run front + back).
 ```
 
-**Follow-up prompt:** TODO (only if needed)
+**Follow-up prompt:** None needed.
 
-**What was lacking after the first prompt:** TODO
+**What was lacking after the first prompt:** Nothing was lacking.
