@@ -1,0 +1,35 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# macOS
+.DS_Store
+
+# Claude Code personal settings
+.claude/settings.local.json
+
+# Cloned class repos (have their own git history)
+yale_som_virtual/
+
+# Assignment: do not commit the database or product images
+data/
+
+# Build output
+dist/
+
+# Never commit the real database, product images, or zipped copies of them
+*.db
+*.sqlite
+data.zip
+*.zip
+data/products/
+.env.local

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Customs: App Check</title>
+<style>
+  :root { --blue: #00356b; --accent: #286dc0; --cream: #faf7f0; --border: #ddd5c3; --ok: #1b6e3c; }
+  body { margin: 0; background: var(--cream); color: #1d1d1d; font: 18px/1.6 "Times New Roman", Times, Georgia, serif; }
+  header { background: var(--blue); color: #fff; padding: 1.5rem 1.25rem; border-bottom: 3px double #b8923a; }
+  header h1 { margin: 0 0 .25rem; font-size: 2rem; }
+  header p { margin: 0; color: #d6e2f2; }
+  main { max-width: 960px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+  h2 { color: var(--blue); font-size: 1.6rem; margin: 2.5rem 0 .25rem; border-bottom: 2px solid var(--border); padding-bottom: .25rem; }
+  h3 { color: var(--blue); margin: 1.5rem 0 .25rem; font-size: 1.15rem; }
+  table { border-collapse: collapse; width: 100%; background: #fff; }
+  th, td { border: 1px solid var(--border); padding: .4rem .7rem; text-align: left; vertical-align: top; }
+  th { background: #e9eef5; }
+  .pass { color: var(--ok); font-weight: bold; }
+  figure { margin: 1rem 0 1.5rem; background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: .75rem; }
+  figure img { display: block; width: 100%; height: auto; border: 1px solid var(--border); }
+  figcaption { margin-top: .6rem; }
+  figcaption strong { color: var(--blue); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  pre { background: #fff; border: 1px solid var(--border); padding: .75rem 1rem; overflow-x: auto; font: 15px/1.4 Menlo, Consolas, monospace; }
+  .how { background: #fff; border-left: 4px solid #b8923a; padding: .5rem 1rem; }
+  code { font: 15px Menlo, Consolas, monospace; background: #eef1f6; padding: 0 .25rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Campus Customs: App Check</h1>
+  <p>Live-site test of the running app, 22 October 2026. Frontend at http://localhost:5173, API at http://127.0.0.1:8000.</p>
+</header>
+
+<main>
+  <h2 style="margin-top:0">Summary</h2>
+  <table>
+    <thead><tr><th>#</th><th>Check</th><th>Question asked</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><a href="#check1">Inventory level from the database</a></td><td>"Do you have this in medium?" (on the Crew Left Chest Hoodie page)</td><td class="pass">Pass</td></tr>
+      <tr><td>2</td><td><a href="#check2">Dynamic search result cards</a></td><td>"What hoodies do you have?"</td><td class="pass">Pass</td></tr>
+      <tr><td>3</td><td><a href="#check3">Problem 9 usability feature: clean plain-text replies</a></td><td>"What hoodies do you have under $50?"</td><td class="pass">Pass</td></tr>
+    </tbody>
+  </table>
+
+  <p class="how"><strong>How it was tested:</strong> a guest (not signed in) used the shop assistant in the browser. The assistant reads <code>data/campus_customs.db</code> through its tools; the screenshots below are of the real running site.</p>
+
+  <!-- ===================== CHECK 1 ===================== -->
+  <h2 id="check1">Check 1: Inventory level of an item (stock and price from the database)</h2>
+  <p>On the Crew Left Chest Hoodie product page, the shopper asks the assistant whether it comes in medium.</p>
+
+  <figure>
+    <img src="app_check_images/inventory.png" alt="Shop assistant chat on the Crew Left Chest Hoodie page saying the hoodie is sold out in medium, with the other sizes in stock">
+    <figcaption><strong>1a. The assistant answers a stock question.</strong> The shopper asked "Do you have this in medium?" without naming the product, and the assistant knew which item was meant from the page. It said medium is sold out and that XS, S, L, XL and XXL are in stock, so it is giving a clear "sold out" answer plus alternatives.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="app_check_images/inventory_table.png" alt="Product page for the Crew Left Chest Hoodie showing the sizes and stock table with medium sold out">
+    <figcaption><strong>1b. The same numbers appear on the product page.</strong> The price ($68.00) and the stock table (XS 20, S 12, M sold out, L 8, XL 20, XXL 5) come straight from the database, and they match what the assistant said in 1a.</figcaption>
+  </figure>
+
+  <h3>1c. Database rows for the same product (<code>campus_customs.db</code>)</h3>
+<pre>product                 price  size  quantity
+----------------------  -----  ----  --------
+Crew Left Chest Hoodie  68.0   XS    20
+Crew Left Chest Hoodie  68.0   S     12
+Crew Left Chest Hoodie  68.0   M     0
+Crew Left Chest Hoodie  68.0   L     8
+Crew Left Chest Hoodie  68.0   XL    20
+Crew Left Chest Hoodie  68.0   XXL   5</pre>
+  <p><strong>What this proves:</strong> the quantity for medium is 0 in the database, and the assistant and the page both report exactly that. Nothing is made up.</p>
+
+  <!-- ===================== CHECK 2 ===================== -->
+  <h2 id="check2">Check 2: Dynamic search result cards after a category question</h2>
+  <p>From the Home page, the shopper opens the assistant and asks "What hoodies do you have?".</p>
+
+  <figure>
+    <img src="app_check_images/search_cards.png" alt="Products page with a 'Picked for you by the shop assistant (12)' section showing hoodie cards with image, name, description, price and color swatches">
+    <figcaption><strong>2a. Matching items appear on the page.</strong> The site jumped to the Products page and added a "Picked for you by the shop assistant (12)" section. Each card has a picture, name, short description, price and color swatches. The database has 27 hoodies, and the assistant showed 12 of them.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="app_check_images/search_chat.png" alt="Shop assistant chat showing hoodie product cards with Buy now buttons next to the Picked for you section on the page">
+    <figcaption><strong>2b. The same results appear inside the chat.</strong> The assistant offers to narrow the list by color, size, price or sport, and the same hoodies show as small cards with a Buy now button. Clicking any card opens that product's full page.</figcaption>
+  </figure>
+  <p><strong>What this proves:</strong> a category question makes the assistant search the catalogue, and the website updates itself with the matching products, without the shopper typing in a search box.</p>
+
+  <!-- ===================== CHECK 3 ===================== -->
+  <h2 id="check3">Check 3: A usability feature added in Problem 9 (clean plain-text replies)</h2>
+  <p>The shopper asks "What hoodies do you have under $50?".</p>
+
+  <figure>
+    <img src="app_check_images/usability.png" alt="Shop assistant reply as plain text with dash bullets and no asterisks, plus two hoodie cards, next to the Picked for you section">
+    <figcaption><strong>3. The reply is plain, readable text.</strong> The two hoodies under $50 are listed as simple dash bullets with no stray asterisks or other markdown symbols, which used to show up as <code>**$68**</code>. The database confirms there are exactly 2 hoodies under $50, and both appear as cards next to the reply.</figcaption>
+  </figure>
+  <p><strong>What this proves:</strong> the Problem 9 "clean replies" improvement works in the live app: the assistant's text is clean, and it is still accurate to the database.</p>
+</main>
+</body>
+</html>
