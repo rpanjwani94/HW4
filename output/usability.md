@@ -1,24 +1,28 @@
 # Usability improvements
 
-Two frontend improvements and two agent/backend improvements. Everything below is visible in the running app (frontend at http://localhost:5173, API at http://127.0.0.1:8000).
+Two frontend improvements (product pictures and a friendlier website) and two agent/backend improvements (clean replies and faster replies). Everything below is visible in the running app (frontend at http://localhost:5173, API at http://127.0.0.1:8000).
 
 ## Frontend
 
-### 1. Pictures on the Home page categories (looks like a store, not a spreadsheet)
+### 1. Pictures of the products
 
-- **What was added:** every category link on the Home page is now a product card with a picture, a bold name and a "Shop now" prompt: Water bottles, Totes and bags, Tumblers and mugs (shown together), Journals, Pens and Sticky pads. The cards lift slightly on hover.
-- **Why it helps:** before, the categories were plain text boxes, so the page looked like a form rather than a shop. Pictures let a shopper recognize what we sell at a glance and make the cards inviting to click, which sends more visitors into the catalogue.
-- **How it was built:** the catalogue database has no photos of these items, so the pictures are original flat illustrations in Yale blue (`frontend/src/components/Art.tsx`). They are drawn in code, so there are no image files to license or to keep out of git. Each has a text alternative for screen readers.
-- **Where to see it:** Home page, sections "Yale pride on the go" and "Desk and office essentials".
+- **What was added:** pictures now appear next to the product links on the Home page. The six gear categories (water bottles, totes and bags, tumblers and mugs, journals, pens and sticky pads) are picture cards, each with a bold name and a "Shop now" prompt. The Home page also shows real photos of featured hoodies, and every product in the shop has its photo on its card.
+- **How it helps a customer:** shoppers can see what the store sells at a glance instead of reading a list of words. A picture makes it easier to recognize the item they want and to choose between items.
+- **How it helps the business:** a page full of pictures looks like a real store, not a plain list, so visitors trust it more and click into products more often, which leads to more sales.
+- **Note:** the catalogue has photos only for the clothing. The gear categories use original illustrations in Yale blue (`frontend/src/components/Art.tsx`), so there are no image files to license.
+- **Where to see it:** the Home page, sections "Yale pride on the go" and "Desk and office"; the Products page for the photo cards.
 
-### 2. Authentic Yale identity: the Y logo and a redesigned bulldog
+### 2. A friendlier customer website
 
 - **What was added:**
-  - A serif Yale-style "Y" mark in the top navigation next to the store name (it also takes shoppers home), large in the Home page banner, in the footer, and as the browser tab icon. The same Y appears on the illustrated gear.
-  - A new bulldog mascot strolling along the bottom of every page, modeled on Yale's Handsome Dan: a calm, white, stocky English bulldog with a brown patch over one eye, a gentle smile, and a Yale-blue blanket with a white Y. He walks at an easy pace with a slow, relaxed gait. It replaces an earlier blue silhouette that looked weak, and a second version that looked too fierce and frantic. He holds still for shoppers who have reduced motion turned on.
-- **Why it helps:** the Y and the bulldog tell shoppers right away that this is a Yale shop, which builds trust and brand recognition. A friendly, recognizable mascot gives the store personality that a generic store does not have.
-- **Note:** the Y is a stand-in drawn for this project (`frontend/src/components/YaleY.tsx`), not the official licensed artwork. Swap in the official file if the store has a license.
-- **Where to see it:** every page (logo in the top bar and footer, bulldog along the bottom edge); the large Y is on Home.
+  - The Yale Y logo in the top bar, the Home banner, the footer and the browser tab, so the site feels like Yale from the first second.
+  - A friendly bulldog mascot in the style of Handsome Dan, with a Yale-blue blanket, strolling along the bottom of every page.
+  - Warm wording and a calmer, inviting look: cream background, Yale blue, a Times-style serif font, and clear sections such as "Come visit us".
+  - A friendlier shop assistant: a bulldog avatar, one-tap starter questions, and a Buy now button on the products it suggests.
+- **How it helps a customer:** the site feels welcoming and easy to use. Shoppers know where they are, what to do next, and where to ask for help, so they are less likely to leave confused.
+- **How it helps the business:** a friendly, recognizably Yale site builds trust and brand recognition. A memorable mascot and a helpful assistant give shoppers a reason to stay longer and come back.
+- **Note:** the Y is a stand-in drawn for this project, not the official licensed artwork (`frontend/src/components/YaleY.tsx`). The mascot holds still for shoppers who have reduced motion turned on.
+- **Where to see it:** every page (logo in the top bar and footer, bulldog along the bottom edge); open the chat button to see the assistant.
 
 ## Agent / backend
 
