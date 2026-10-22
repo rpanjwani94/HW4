@@ -22,14 +22,14 @@ These are kept out on purpose (see `.gitignore`):
 
 ## Run it
 
-Needs Python 3.14 and Node 24 (other recent versions should work). Run every command from the repository's top folder unless it says otherwise.
+Needs Python 3.14 and Node 24 (other recent versions should work). Run every command from the `HW4/` folder unless it says otherwise.
 
 ### 1. Place the data pack
 
-Unzip the course `data.zip` in the repository's top folder (next to `backend/` and `frontend/`). It creates the `data/` folder, and you should end up with:
+Unzip the course `data.zip` inside the `HW4/` folder (next to `backend/` and `frontend/`). It creates the `data/` folder, and you should end up with:
 
 ```
-(repository top folder)
+HW4/
   data/
     campus_customs.db
     products/            (the product images, e.g. basic-hoodie-big-yale.jpg)
